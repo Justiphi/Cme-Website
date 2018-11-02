@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Users";
+    List<User> people = ViewData["Users"] as List<User>;
+}
+
+<h1>Awesome Candidates</h1>
+<div class="text-center row justify-content-center">
+    @foreach (User person in people)
+    {
+    <div class="person col-sm-12 col-md-5 col-lg-3" data-aos="zoom-in">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <img src="@person.ImageLink" class="selfie" style="max-width:100%" />
+            </div>
+        </div>
+
+        <h3>@person.FirstName @person.LastName</h3>
+        <hr>
+        <h4>Sector: @person.Sector</h4>
+        <a asp-area="" asp-controller="Home" asp-action="Profile" asp-route-id="@person.Username">More&gt;&gt;</a>
+    </div>
+    }
+</div>
+

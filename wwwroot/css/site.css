@@ -1,0 +1,91 @@
+﻿:root {
+    --PrimaryColour: white;
+    --SecondaryColour: #31C1A7;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    background-color: var(--PrimaryColour);
+    color: var(--SecondaryColour);
+}
+
+input {
+    width: 120px;
+    margin: 5px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.logo{
+    margin: 10px;
+    margin-bottom:25px;
+}
+
+.person{
+    padding: 20px;
+    margin: 20px;
+    border: 3px solid var(--SecondaryColour);  
+}
+
+.selfie {
+    border: 3px solid var(--SecondaryColour);
+    margin-bottom: 5px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.btn-outline-success {
+    color: var(--buttonPurple);
+    background-color: transparent;
+    background-image: none;
+    border-color: var(--buttonPurple);
+}
+
+    .btn-outline-success:hover {
+        color: #fff;
+        background-color: var(--SecondaryColour);
+        border-color: var(--buttonPurple);
+    }
+
+    .btn-outline-success.focus, .btn-outline-success:focus {
+        box-shadow: 0 0 0 3px rgba(40,167,69,.5);
+    }
+
+    .btn-outline-success.disabled, .btn-outline-success:disabled {
+        color: var(--SecondaryColour);
+        background-color: transparent;
+    }
+
+    .btn-outline-success.active, .btn-outline-success:active, .show > .btn-outline-success.dropdown-toggle {
+        color: #fff;
+        background-color: var(--SecondaryColour);
+        border-color: var(--SecondaryColour);
+    }

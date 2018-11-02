@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "Profile";
+    var details = ViewData["user"] as User;
+    int socialCount = 0;
+}
+
+@if (details.Username != null)
+{
+    <div class="container justify-content-center">
+        <h1><b>C Me</b></h1>
+        <h2>For who I am</h2>
+        <hr />
+        <div class="row justify-content-center" style="margin-top:50px;">
+            <div class="col-sm-10 col-md-5 col-lg-4">
+                <img src="@details.ImageLink" style="max-width:80%;" />
+            </div>
+            <div class="col-sm-10 col-md-6 col-lg-6">
+                <h1>@details.FirstName @details.LastName</h1><br><br>
+                <h2>Sector: @details.Sector</h2>
+                <br><br>
+                <h2>Contact: @details.Contact</h2>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        @foreach (string item in details.Description)
+        {
+            <h3>@item</h3>
+            <br>
+        }
+        <br><br>
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <h1>Interests:</h1>
+                    <ul>
+                        @foreach (var interest in details.Categories)
+                        {
+                            <li>@interest</li>
+                        }
+                    </ul>
+                    <br><br>
+                    <h1>Social Media:</h1>
+                    @if (details.facebook != null)
+                    {
+                        socialCount++;
+                        <h3>Facebook: <a href="@details.facebook">View</a></h3>
+                    }
+                    @if (details.twitter != null)
+                    {
+                        socialCount++;
+                        <h3>Twitter: <a href="https://twitter.com/@details.twitter">@@@details.twitter</a></h3>
+                    }
+                    @if (details.linkedin != null   )
+                    {
+                        socialCount++;
+                        <h3>LinkedIn: <a href="@details.linkedin">View</a></h3>
+                    }
+                    @if (socialCount == 0)
+                    {
+                        <h3>None</h3>
+                    }
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    @if (details.videos != null)
+                    {
+                        <h1>Candidates videos</h1>
+                        <div class="container justify-content-center">
+                            @foreach (string video in details.videos)
+                            {
+                                <object width="320" height="240" data="https://www.youtube.com/v/@video"></object>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+    </div>
+}
+else
+{
+    <h1>Woops!</h1>
+    <h2>User does not exist</h2>
+}
+
+
